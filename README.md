@@ -2,9 +2,16 @@
 
 Here is a list of explanations for what I have done to optimize the index.html and main.js.
 
-### How I optimized the index.html 
+### Part 1: How I optimized the index.html 
 
-#### Part 1: Compress all the pictures
+#### Step 1: Compress all the pictures
+
+When I test the original webpage on [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=zh-CN), it warns me that the pictures are too big. So I used grunt to minify the pictures, and used an [online picture compressing tool](http://compressjpeg.com/zh/) to further compress it. 
+
+#### Step 2: Inline all the CSS and Js files 
+
+PageSpeed Insights also told me to inline all the CSS and JS files. So I: 
+
 
 
 

@@ -14,6 +14,11 @@ PageSpeed Insights also told me to inline all the CSS and JS files. So I:
 
 
 
+### Part 2: How I optimized main.js 
+#### Step 1: 
+
+
+
 
 
 

@@ -15,19 +15,42 @@ PageSpeed Insights also told me to inline all the CSS and JS files. So I:
 
 
 ### Part 2: How I optimized main.js 
-#### Step 1: Create just enough pizzas on the background 
+#### Step 1: Create just enough pizzas on the background
+The final code looks like the following 
 
   ```bash
   var itemsNum = Math.floor((window.innerHeight + 100) / 256) * 8;
   for (var i = 0; i < itemsNum; i++) {
     var elem = document.createElement('img');
     ......
-    items = document.querySelectorAll('.mover');
+    document.querySelector("#movingPizzas1").appendChild(elem);
+  }
+  ```
+#### Step 2: Optimize function updatePositions()
+
+The final code looks like the following: 
+  ```bash
+  var scrollTopValue = document.body.scrollTop;
+  for (var i = 0; i < itemsNum; i++) {
+    var transformValue = 100 * Math.sin((scrollTopValue / 1250) + (i % 5)) - 100 * Math.sin(i % 5);
+    var toTransform = 'translate(' + transformValue + 'px)';
+    items[i].style.transform = toTransform ;
   }
   ```
 
+1. I created a variable to store the current scroll top value, so the javascript doesn't have to stop each time and read the layout and change it. 
+1. I changed style.left to style.transform. Transform doesn't require the screen to paint again, which means less time. 
+1. I recalculated how each img.mover needs to translate on the X axis by substracting the initial left value using the current left value. 
+1. I created a layer for each img.mover so that when it moves, the whole page doesn't have to be repainted. 
 
+  ```bash
+  .mover {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  ```
 
+#### Step 3: 
 
 
 

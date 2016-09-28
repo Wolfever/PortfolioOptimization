@@ -38,8 +38,8 @@ The final code looks like the following:
   }
   ```
 
-1. I created a variable to store the current scroll top value, so the javascript doesn't have to stop each time and read the layout and change it. 
-1. I changed style.left to style.transform. Transform doesn't require the screen to paint again, which means less time. 
+1. I created a variable to store the current scroll top value, so the javascript doesn't have to stop each time and read the layout and then change it.  
+1. I changed style.left to style.transform. Using transform means no more painting, which means less time. 
 1. I recalculated how each img.mover needs to translate on the X axis by substracting the initial left value using the current left value. 
 1. I created a layer for each img.mover so that when it moves, the whole page doesn't have to be repainted. 
 
@@ -50,8 +50,34 @@ The final code looks like the following:
   }
   ```
 
-#### Step 3: 
+#### Step 3: Optimize function changePizzaSizes(size) 
 
+  ```bash
+    function sizeSwitcher (size) {
+      switch(size) {
+        case "1":
+          return 25;
+        case "2":
+          return 33.33333;
+        case "3":
+          return 50;
+        default:
+          console.log("bug in sizeSwitcher");
+      }
+    }
+
+    var newWidth = sizeSwitcher(size);
+    
+    for(var i = 0; i < randomPizzaContainer.length; i++){
+      randomPizzaContainer[i].style.width = newWidth + '%';
+    }
+  ```
+
+##### About the insanity of the former code: 
+The former code indicates that when the size is changed to a new size, computer should first read the initial width of the first element, then calculate its percentage in comparison to its parent container. After this, computer should calculate the desired width and then make out the difference between these two widths. Then oddly enough, computer has to add this difference to the former width of the first element, and change the style. Then computer repeats itself and figure out the width of the second element's width. 
+
+##### The improvement that I made:
+When changing the size, simply given each element a new width percentage. 
 
 
 

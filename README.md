@@ -89,8 +89,6 @@ The former code indicates that when the size is changed to a new size, computer 
 ##### The improvement that I made:
 When changing the size, simply given each element a new width percentage. This is also the solution that I learned in the course. 
 
-#### 4. Other minor improvement 
-I changed the size of the moving pizzas, so they don't have to be resized by css. 
 
 ### Questions that I have 
 #### About cache

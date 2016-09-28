@@ -49,6 +49,12 @@ The final code looks like the following:
     transform: translateZ(0);
   }
   ```
+1. To make the transform attribute to work, I added an initial value to each img.mover when they are created: 
+
+  ```bash
+    var leftValue  = 100 * Math.sin(i % 5) + (i % cols) * s;
+    elem.style.left = leftValue + 'px';
+  ```
 
 #### Step 3: Optimize function changePizzaSizes(size) 
 

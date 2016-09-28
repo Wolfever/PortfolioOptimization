@@ -19,7 +19,7 @@ PageSpeed Insights also told me to inline all the CSS and JS files. So I:
 After these two steps, the page reached a score of over 90% in PageSpeed Insights. 
 
 ### Part 2: How I optimized main.js 
-#### Step 1: Create just enough pizzas on the background
+#### 1: Create just enough pizzas on the background
 The final code looks like the following 
 
   ```bash
@@ -30,7 +30,7 @@ The final code looks like the following
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   ```
-#### Step 2: Optimize function updatePositions()
+#### 2: Optimize function updatePositions()
 
 The final code looks like the following: 
   ```bash
@@ -60,7 +60,7 @@ The final code looks like the following:
     elem.style.left = leftValue + 'px';
   ```
 
-#### Step 3: Optimize function changePizzaSizes(size) 
+#### 3: Optimize function changePizzaSizes(size) 
 
   ```bash
     function sizeSwitcher (size) {
@@ -88,6 +88,9 @@ The former code indicates that when the size is changed to a new size, computer 
 
 ##### The improvement that I made:
 When changing the size, simply given each element a new width percentage. This is also the solution that I learned in the course. 
+
+#### 4. Other minor improvement 
+I changed the size of the moving pizzas, so they don't have to be resized by css. 
 
 ### Questions that I have 
 #### About cache

@@ -15,8 +15,16 @@ PageSpeed Insights also told me to inline all the CSS and JS files. So I:
 
 
 ### Part 2: How I optimized main.js 
-#### Step 1: 
+#### Step 1: Create just enough pizzas on the background 
 
+  ```bash
+  var itemsNum = Math.floor((window.innerHeight + 100) / 256) * 8;
+  for (var i = 0; i < itemsNum; i++) {
+    var elem = document.createElement('img');
+    ......
+    items = document.querySelectorAll('.mover');
+  }
+  ```
 
 
 

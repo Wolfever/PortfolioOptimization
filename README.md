@@ -6,7 +6,7 @@ Here is a list of explanations for what I have done to optimize the index.html a
 
 #### Step 1: Compress all the pictures
 
-When I test the original webpage on [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=zh-CN), it warns me that the pictures are too big. So I used grunt to minify the pictures, and used an [online picture compressing tool](http://compressjpeg.com/zh/) to further compress it. 
+When I test the original webpage on [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=zh-CN), it warns me that the pictures are too big. So I used photoshop to 'shrink' the pictures, and used an [online picture compressing tool](http://compressjpeg.com/zh/) to compress it. 
 
 #### Step 2: Inline all the CSS and Js files 
 
